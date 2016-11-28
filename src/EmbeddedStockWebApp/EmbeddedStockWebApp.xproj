@@ -6,14 +6,15 @@
   </PropertyGroup>
   <Import Project="$(VSToolsPath)\DotNet\Microsoft.DotNet.Props" Condition="'$(VSToolsPath)' != ''" />
   <PropertyGroup Label="Globals">
-    <ProjectGuid>42e6a328-a6ed-4d70-8fa5-7bfc617ab9e2</ProjectGuid>
+    <ProjectGuid>016cd416-4765-4387-b73b-313dd938626c</ProjectGuid>
     <RootNamespace>EmbeddedStockWebApp</RootNamespace>
     <BaseIntermediateOutputPath Condition="'$(BaseIntermediateOutputPath)'=='' ">.\obj</BaseIntermediateOutputPath>
     <OutputPath Condition="'$(OutputPath)'=='' ">.\bin\</OutputPath>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup>
     <SchemaVersion>2.0</SchemaVersion>
+    <ApplicationInsightsResourceId>/subscriptions/fb9c226a-0f75-4396-a7bb-999513d6ee75/resourcegroups/Default-ApplicationInsights-EastUS/providers/microsoft.insights/components/EmbeddedStockWebApp</ApplicationInsightsResourceId>
   </PropertyGroup>
   <ItemGroup>
     <DnxInvisibleContent Include="bower.json" />

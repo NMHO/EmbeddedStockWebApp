@@ -31,11 +31,5 @@ namespace EmbeddedStockWebApp.Controllers
         {
             return View();
         }
-
-        public IActionResult Startside()
-        {
-            ViewData["Message"] = "Denne side virker fint!!";
-            return View();
-        }
     }
 }

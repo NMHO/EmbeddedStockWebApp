@@ -2,6 +2,7 @@
 <Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <ActiveDebugProfile>IIS Express</ActiveDebugProfile>
-    <NameOfLastUsedPublishProfile>EmbeddedStockWebApp</NameOfLastUsedPublishProfile>
+    <AutoRefresh>false</AutoRefresh>
+    <NameOfLastUsedPublishProfile>EmbeddedStock-WebApp</NameOfLastUsedPublishProfile>
   </PropertyGroup>
 </Project>
