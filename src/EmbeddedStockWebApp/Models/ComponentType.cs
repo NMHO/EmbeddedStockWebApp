@@ -11,7 +11,7 @@ namespace EmbeddedStockWebApp.Models
         public ComponentType()
         {
             Components = new List<Component>();
-            //Categories = new List<Category>();
+            //Categories = new List<Category>();            
         }
         [Key]
         public long ComponentTypeId { get; set; }
@@ -31,7 +31,9 @@ namespace EmbeddedStockWebApp.Models
 
     public enum ComponentTypeStatus
     {
+        [Display(Name = "Available")]
         Available,
+        [Display(Name = "ReservedAdmin")]
         ReservedAdmin
     }
 }
