@@ -1,14 +1,15 @@
-﻿-d:DEBUG
+﻿-d:RELEASE
 -d:TRACE
 -d:NETCOREAPP1_1
 -nowarn:CS1701
 -nowarn:CS1702
 -nowarn:CS1705
+-optimize
 -debug:full
 -nostdlib
 -nologo
-"C:\Users\Victor\Dropbox\IHA\6. Semester\ITWEB\Project\local\Embedded Stock\src\EmbeddedStockWebApp\obj\Debug\netcoreapp1.1\dotnet-compile.assemblyinfo.cs"
--out:"C:\Users\Victor\Dropbox\IHA\6. Semester\ITWEB\Project\local\Embedded Stock\src\EmbeddedStockWebApp\bin\Debug\netcoreapp1.1\EmbeddedStockWebApp.dll"
+"C:\Users\Victor\Dropbox\IHA\6. Semester\ITWEB\Project\local\Embedded Stock\src\EmbeddedStockWebApp\obj\Release\netcoreapp1.1\dotnet-compile.assemblyinfo.cs"
+-out:"C:\Users\Victor\Dropbox\IHA\6. Semester\ITWEB\Project\local\Embedded Stock\src\EmbeddedStockWebApp\bin\Release\netcoreapp1.1\EmbeddedStockWebApp.dll"
 -r:"C:\Users\Victor\.nuget\packages\Microsoft.AspNetCore.Antiforgery\1.1.0\lib\netstandard1.3\Microsoft.AspNetCore.Antiforgery.dll"
 -r:"C:\Users\Victor\.nuget\packages\Microsoft.AspNetCore.Authentication\1.1.0\lib\netstandard1.3\Microsoft.AspNetCore.Authentication.dll"
 -r:"C:\Users\Victor\.nuget\packages\Microsoft.AspNetCore.Authentication.Cookies\1.1.0\lib\netstandard1.3\Microsoft.AspNetCore.Authentication.Cookies.dll"
@@ -221,7 +222,7 @@
 -r:"C:\Users\Victor\.nuget\packages\System.Threading.Timer\4.3.0\ref\netstandard1.2\System.Threading.Timer.dll"
 -r:"C:\Users\Victor\.nuget\packages\System.Xml.ReaderWriter\4.3.0\ref\netstandard1.3\System.Xml.ReaderWriter.dll"
 -r:"C:\Users\Victor\.nuget\packages\System.Xml.XDocument\4.3.0\ref\netstandard1.3\System.Xml.XDocument.dll"
--resource:"C:\Users\Victor\Dropbox\IHA\6. Semester\ITWEB\Project\local\Embedded Stock\src\EmbeddedStockWebApp\obj\Debug\netcoreapp1.1\EmbeddedStockWebAppdotnet-compile.deps.json",EmbeddedStockWebApp.deps.json
+-resource:"C:\Users\Victor\Dropbox\IHA\6. Semester\ITWEB\Project\local\Embedded Stock\src\EmbeddedStockWebApp\obj\Release\netcoreapp1.1\EmbeddedStockWebAppdotnet-compile.deps.json",EmbeddedStockWebApp.deps.json
 "C:\Users\Victor\Dropbox\IHA\6. Semester\ITWEB\Project\local\Embedded Stock\src\EmbeddedStockWebApp\Program.cs"
 "C:\Users\Victor\Dropbox\IHA\6. Semester\ITWEB\Project\local\Embedded Stock\src\EmbeddedStockWebApp\Startup.cs"
 "C:\Users\Victor\Dropbox\IHA\6. Semester\ITWEB\Project\local\Embedded Stock\src\EmbeddedStockWebApp\Controllers\AccountController.cs"

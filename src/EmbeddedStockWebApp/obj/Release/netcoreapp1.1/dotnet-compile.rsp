@@ -1,12 +1,12 @@
---temp-output:C:\Users\Victor\Dropbox\IHA\6. Semester\ITWEB\Project\local\Embedded Stock\src\EmbeddedStockWebApp\obj\Debug\netcoreapp1.1\
---out:C:\Users\Victor\Dropbox\IHA\6. Semester\ITWEB\Project\local\Embedded Stock\src\EmbeddedStockWebApp\bin\Debug\netcoreapp1.1\EmbeddedStockWebApp.dll
---define:DEBUG
+--temp-output:C:\Users\Victor\Dropbox\IHA\6. Semester\ITWEB\Project\local\Embedded Stock\src\EmbeddedStockWebApp\obj\Release\netcoreapp1.1\
+--out:C:\Users\Victor\Dropbox\IHA\6. Semester\ITWEB\Project\local\Embedded Stock\src\EmbeddedStockWebApp\bin\Release\netcoreapp1.1\EmbeddedStockWebApp.dll
+--define:RELEASE
 --define:TRACE
 --define:NETCOREAPP1_1
 --suppress-warning:CS1701
 --suppress-warning:CS1702
 --suppress-warning:CS1705
---optimize:False
+--optimize:True
 --emit-entry-point:True
 --output-name:EmbeddedStockWebApp
 --file-version:1.0.0.0
@@ -225,7 +225,7 @@
 --reference:C:\Users\Victor\.nuget\packages\System.Threading.Timer\4.3.0\ref\netstandard1.2\System.Threading.Timer.dll
 --reference:C:\Users\Victor\.nuget\packages\System.Xml.ReaderWriter\4.3.0\ref\netstandard1.3\System.Xml.ReaderWriter.dll
 --reference:C:\Users\Victor\.nuget\packages\System.Xml.XDocument\4.3.0\ref\netstandard1.3\System.Xml.XDocument.dll
---resource:"C:\Users\Victor\Dropbox\IHA\6. Semester\ITWEB\Project\local\Embedded Stock\src\EmbeddedStockWebApp\obj\Debug\netcoreapp1.1\EmbeddedStockWebAppdotnet-compile.deps.json",EmbeddedStockWebApp.deps.json
+--resource:"C:\Users\Victor\Dropbox\IHA\6. Semester\ITWEB\Project\local\Embedded Stock\src\EmbeddedStockWebApp\obj\Release\netcoreapp1.1\EmbeddedStockWebAppdotnet-compile.deps.json",EmbeddedStockWebApp.deps.json
 C:\Users\Victor\Dropbox\IHA\6. Semester\ITWEB\Project\local\Embedded Stock\src\EmbeddedStockWebApp\Program.cs
 C:\Users\Victor\Dropbox\IHA\6. Semester\ITWEB\Project\local\Embedded Stock\src\EmbeddedStockWebApp\Startup.cs
 C:\Users\Victor\Dropbox\IHA\6. Semester\ITWEB\Project\local\Embedded Stock\src\EmbeddedStockWebApp\Controllers\AccountController.cs
