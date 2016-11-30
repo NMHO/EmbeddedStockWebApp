@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v1.1/",
-    "signature": "1c1fcae3e16635ec8b5837bb8b7ebe56fa4d2f41"
+    "signature": "cb126f5540c4684f4fce70624a8cb8c3f2fe09a3"
   },
   "compilationOptions": {
     "defines": [
@@ -17,7 +17,6 @@
       "EmbeddedStockWebApp/1.0.0": {
         "dependencies": {
           "Microsoft.NETCore.App": "1.1.0",
-          "BundlerMinifier.Core": "2.2.306",
           "Microsoft.AspNetCore.Authentication.Cookies": "1.1.0",
           "Microsoft.AspNetCore.Diagnostics": "1.1.0",
           "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": "1.1.0",
@@ -40,16 +39,6 @@
         },
         "compile": {
           "EmbeddedStockWebApp.dll": {}
-        }
-      },
-      "BundlerMinifier.Core/2.2.306": {
-        "dependencies": {
-          "Microsoft.NETCore.App": "1.1.0",
-          "NUglify": "1.5.1",
-          "Newtonsoft.Json": "9.0.1"
-        },
-        "compile": {
-          "lib/netcoreapp1.0/dotnet-bundle.dll": {}
         }
       },
       "Libuv/1.9.1": {
@@ -1284,15 +1273,6 @@
         },
         "compile": {
           "lib/netstandard1.0/Newtonsoft.Json.dll": {}
-        }
-      },
-      "NUglify/1.5.1": {
-        "dependencies": {
-          "NETStandard.Library": "1.6.1",
-          "System.Security.Cryptography.Algorithms": "4.3.0"
-        },
-        "compile": {
-          "lib/netstandard1.3/NUglify.dll": {}
         }
       },
       "Remotion.Linq/2.1.1": {
@@ -2807,7 +2787,6 @@
       "EmbeddedStockWebApp/1.0.0": {
         "dependencies": {
           "Microsoft.NETCore.App": "1.1.0",
-          "BundlerMinifier.Core": "2.2.306",
           "Microsoft.AspNetCore.Authentication.Cookies": "1.1.0",
           "Microsoft.AspNetCore.Diagnostics": "1.1.0",
           "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": "1.1.0",
@@ -2830,16 +2809,6 @@
         },
         "runtime": {
           "EmbeddedStockWebApp.dll": {}
-        }
-      },
-      "BundlerMinifier.Core/2.2.306": {
-        "dependencies": {
-          "Microsoft.NETCore.App": "1.1.0",
-          "NUglify": "1.5.1",
-          "Newtonsoft.Json": "9.0.1"
-        },
-        "runtime": {
-          "lib/netcoreapp1.0/dotnet-bundle.dll": {}
         }
       },
       "Libuv/1.9.1": {
@@ -4071,15 +4040,6 @@
         },
         "runtime": {
           "lib/netstandard1.0/Newtonsoft.Json.dll": {}
-        }
-      },
-      "NUglify/1.5.1": {
-        "dependencies": {
-          "NETStandard.Library": "1.6.1",
-          "System.Security.Cryptography.Algorithms": "4.3.0"
-        },
-        "runtime": {
-          "lib/netstandard1.3/NUglify.dll": {}
         }
       },
       "Remotion.Linq/2.1.1": {
@@ -5510,11 +5470,6 @@
       "serviceable": false,
       "sha512": ""
     },
-    "BundlerMinifier.Core/2.2.306": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-3MhXe3qLroL+Fe4Uo/7cmtYQ3YPjSHIjfuHxpewVZUdU4mh73wLEKAgf9rr3OLTuEXCbJr8bOBdwjuNwfGR8qw=="
-    },
     "Libuv/1.9.1": {
       "type": "package",
       "serviceable": true,
@@ -6034,11 +5989,6 @@
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-U82mHQSKaIk+lpSVCbWYKNavmNH1i5xrExDEquU1i6I5pV6UMOqRnJRSlKO3cMPfcpp0RgDY+8jUXHdQ4IfXvw=="
-    },
-    "NUglify/1.5.1": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-iYV/OtSs+HgyE/RilY7UvGXYec6r0OJenWlPIdX/IivedVpSSdzxvPvUIyWpiV/6ad7VjantH0/6oaOhAZbaoQ=="
     },
     "Remotion.Linq/2.1.1": {
       "type": "package",

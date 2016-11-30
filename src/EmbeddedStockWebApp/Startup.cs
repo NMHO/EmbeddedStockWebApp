@@ -83,6 +83,7 @@ namespace EmbeddedStockWebApp
                     name: "default",
                     template: "{controller=Categories}/{action=Index}/{id?}");
             });
+            // New comment
         }
     }
 }
