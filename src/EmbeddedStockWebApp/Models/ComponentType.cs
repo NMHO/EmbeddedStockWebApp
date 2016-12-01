@@ -11,7 +11,7 @@ namespace EmbeddedStockWebApp.Models
         public ComponentType()
         {
             Components = new List<Component>();
-            //Categories = new List<Category>();            
+            Categories = new List<OneToMany>();            
         }
         [Key]
         public long ComponentTypeId { get; set; }
@@ -26,7 +26,7 @@ namespace EmbeddedStockWebApp.Models
         public string AdminComment { get; set; }
         public virtual ESImage Image { get; set; }
         public ICollection<Component> Components { get; protected set; }
-        //public ICollection<Category> Categories { get; protected set; }
+        public ICollection<OneToMany> Categories { get; protected set; }
     }
 
     public enum ComponentTypeStatus
@@ -35,5 +35,6 @@ namespace EmbeddedStockWebApp.Models
         Available,
         [Display(Name = "ReservedAdmin")]
         ReservedAdmin
-    }
+    }
+
 }

@@ -45,18 +45,34 @@ namespace EmbeddedStockWebApp.Controllers
         // GET: Categories/Create
         public IActionResult Create()
         {
+            var CT = _context.ComponentType.ToList();
+
+            IEnumerable<SelectListItem> selectList =
+                from c in CT
+                select new SelectListItem
+                {
+                    Text = c.ComponentName,                    
+                    Value = c.ComponentTypeId.ToString(),
+                };
+
+            ViewData["ComponentTypes"] = selectList;
+
             return View();
         }
+       
+        
 
         // POST: Categories/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("CategoryId,Name")] Category category)
+        public async Task<IActionResult> Create([Bind("CategoryId,Name,ComponentTypes")] Category category)
         {
             if (ModelState.IsValid)
             {
+                
+                //category.ComponentTypes.Add(new OneToMany { CategoryId = category.CategoryId });
                 _context.Add(category);
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Index");
@@ -85,7 +101,7 @@ namespace EmbeddedStockWebApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("CategoryId,Name")] Category category)
+        public async Task<IActionResult> Edit(int id, [Bind("CategoryId,Name,ComponentTypes")] Category category)
         {
             if (id != category.CategoryId)
             {
@@ -147,5 +163,13 @@ namespace EmbeddedStockWebApp.Controllers
         {
             return _context.Category.Any(e => e.CategoryId == id);
         }
+
+        public async Task<IActionResult> ShowComponentTypes(int id)
+        {
+            return View("../ComponentTypes/Index/");
+        }
+
+
+        
     }
 }

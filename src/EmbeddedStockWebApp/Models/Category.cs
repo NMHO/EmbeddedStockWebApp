@@ -10,13 +10,17 @@ namespace EmbeddedStockWebApp.Models
     {
         public Category()
         {
-            ComponentTypes = new List<ComponentType>();
+            ComponentTypes = new List<OneToMany>();
         }
 
         [Key]
         public int CategoryId { get; set; }
         public string Name { get; set; }
-        public ICollection<ComponentType> ComponentTypes { get; protected set; }
+
+        
+        public ICollection<OneToMany> ComponentTypes { get; protected set; }
+
+        
 
     }
 }

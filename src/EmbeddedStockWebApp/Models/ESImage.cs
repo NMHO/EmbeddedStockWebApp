@@ -14,6 +14,7 @@ namespace EmbeddedStockWebApp.Models
         public string ImageMimeType { get; set; }
         public byte[] Thumbnail { get; set; }
         public byte[] ImageData { get; set; }
-    }
+    }
+
 
 }

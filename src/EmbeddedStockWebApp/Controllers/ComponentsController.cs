@@ -25,6 +25,8 @@ namespace EmbeddedStockWebApp.Controllers
             return View(await _context.Component.ToListAsync());
         }
 
+        
+
         // GET: Components/Details/5
         public async Task<IActionResult> Details(long? id)
         {
@@ -45,6 +47,18 @@ namespace EmbeddedStockWebApp.Controllers
         // GET: Components/Create
         public IActionResult Create()
         {
+            var CT = _context.Category.ToList();
+
+            IEnumerable<SelectListItem> selectList =
+                from c in CT
+                select new SelectListItem
+                {
+                    Text = c.Name,
+                    Value = c.CategoryId.ToString(),
+                };
+
+            ViewData["Categories"] = selectList;
+
             return View();
         }
 
@@ -53,7 +67,7 @@ namespace EmbeddedStockWebApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ComponentId,AdminComment,ComponentNumber,ComponentTypeId,CurrentLoanInformationId,SerialNo,Status,UserComment")] Component component)
+        public async Task<IActionResult> Create([Bind("ComponentId,AdminComment,ComponentNumber,ComponentTypeId,CurrentLoanInformationId,SerialNo,Status,UserComment,Categories")] Component component)
         {
             if (ModelState.IsValid)
             {

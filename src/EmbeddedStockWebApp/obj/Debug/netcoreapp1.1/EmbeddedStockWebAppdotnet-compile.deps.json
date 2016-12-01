@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v1.1/",
-    "signature": "1c1fcae3e16635ec8b5837bb8b7ebe56fa4d2f41"
+    "signature": "859450977f63851420be981610e50656ca21d563"
   },
   "compilationOptions": {
     "defines": [
@@ -16,7 +16,7 @@
     ".NETCoreApp,Version=v1.1": {
       "EmbeddedStockWebApp/1.0.0": {
         "dependencies": {
-          "Microsoft.NETCore.App": "1.1.0",
+          "BundlerMinifier.Core": "2.2.306",
           "Microsoft.AspNetCore.Authentication.Cookies": "1.1.0",
           "Microsoft.AspNetCore.Diagnostics": "1.1.0",
           "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": "1.1.0",
@@ -26,6 +26,7 @@
           "Microsoft.AspNetCore.Server.IISIntegration": "1.1.0",
           "Microsoft.AspNetCore.Server.Kestrel": "1.1.0",
           "Microsoft.AspNetCore.StaticFiles": "1.1.0",
+          "Microsoft.DotNet.InternalAbstractions": "1.0.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "1.1.0",
           "Microsoft.EntityFrameworkCore.SqlServer.Design": "1.1.0",
           "Microsoft.Extensions.Configuration.EnvironmentVariables": "1.1.0",
@@ -35,8 +36,8 @@
           "Microsoft.Extensions.Logging.Console": "1.1.0",
           "Microsoft.Extensions.Logging.Debug": "1.1.0",
           "Microsoft.Extensions.Options.ConfigurationExtensions": "1.1.0",
-          "Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.1.0",
-          "BundlerMinifier.Core": "2.2.306"
+          "Microsoft.NETCore.App": "1.1.0",
+          "Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.1.0"
         },
         "compile": {
           "EmbeddedStockWebApp.dll": {}
@@ -710,6 +711,21 @@
         }
       },
       "Microsoft.DiaSymReader.Native/1.4.0": {},
+      "Microsoft.DotNet.InternalAbstractions/1.0.0": {
+        "dependencies": {
+          "System.AppContext": "4.3.0",
+          "System.Collections": "4.3.0",
+          "System.IO": "4.3.0",
+          "System.IO.FileSystem": "4.3.0",
+          "System.Reflection.TypeExtensions": "4.3.0",
+          "System.Runtime.Extensions": "4.3.0",
+          "System.Runtime.InteropServices": "4.3.0",
+          "System.Runtime.InteropServices.RuntimeInformation": "4.3.0"
+        },
+        "compile": {
+          "lib/netstandard1.3/Microsoft.DotNet.InternalAbstractions.dll": {}
+        }
+      },
       "Microsoft.DotNet.PlatformAbstractions/1.1.0": {
         "dependencies": {
           "System.AppContext": "4.3.0",
@@ -2806,7 +2822,7 @@
     ".NETCoreApp,Version=v1.1/": {
       "EmbeddedStockWebApp/1.0.0": {
         "dependencies": {
-          "Microsoft.NETCore.App": "1.1.0",
+          "BundlerMinifier.Core": "2.2.306",
           "Microsoft.AspNetCore.Authentication.Cookies": "1.1.0",
           "Microsoft.AspNetCore.Diagnostics": "1.1.0",
           "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": "1.1.0",
@@ -2816,6 +2832,7 @@
           "Microsoft.AspNetCore.Server.IISIntegration": "1.1.0",
           "Microsoft.AspNetCore.Server.Kestrel": "1.1.0",
           "Microsoft.AspNetCore.StaticFiles": "1.1.0",
+          "Microsoft.DotNet.InternalAbstractions": "1.0.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "1.1.0",
           "Microsoft.EntityFrameworkCore.SqlServer.Design": "1.1.0",
           "Microsoft.Extensions.Configuration.EnvironmentVariables": "1.1.0",
@@ -2825,8 +2842,8 @@
           "Microsoft.Extensions.Logging.Console": "1.1.0",
           "Microsoft.Extensions.Logging.Debug": "1.1.0",
           "Microsoft.Extensions.Options.ConfigurationExtensions": "1.1.0",
-          "Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.1.0",
-          "BundlerMinifier.Core": "2.2.306"
+          "Microsoft.NETCore.App": "1.1.0",
+          "Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.1.0"
         },
         "runtime": {
           "EmbeddedStockWebApp.dll": {}
@@ -3503,6 +3520,21 @@
         }
       },
       "Microsoft.DiaSymReader.Native/1.4.0": {},
+      "Microsoft.DotNet.InternalAbstractions/1.0.0": {
+        "dependencies": {
+          "System.AppContext": "4.3.0",
+          "System.Collections": "4.3.0",
+          "System.IO": "4.3.0",
+          "System.IO.FileSystem": "4.3.0",
+          "System.Reflection.TypeExtensions": "4.3.0",
+          "System.Runtime.Extensions": "4.3.0",
+          "System.Runtime.InteropServices": "4.3.0",
+          "System.Runtime.InteropServices.RuntimeInformation": "4.3.0"
+        },
+        "runtime": {
+          "lib/netstandard1.3/Microsoft.DotNet.InternalAbstractions.dll": {}
+        }
+      },
       "Microsoft.DotNet.PlatformAbstractions/1.1.0": {
         "dependencies": {
           "System.AppContext": "4.3.0",
@@ -5779,6 +5811,11 @@
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-6HpEBMxIi9KJHKnF2ISRy3HsxhRYL1/CdnXGBqSWOUE8uaY5gthzStdQdbPVFxsKCNwsYcfRc11RXjLVvGF5bQ=="
+    },
+    "Microsoft.DotNet.InternalAbstractions/1.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-AAguUq7YyKk3yDWPoWA8DrLZvURxB/LrDdTn1h5lmPeznkFUpfC3p459w5mQYQE0qpquf/CkSQZ0etiV5vRHFA=="
     },
     "Microsoft.DotNet.PlatformAbstractions/1.1.0": {
       "type": "package",
