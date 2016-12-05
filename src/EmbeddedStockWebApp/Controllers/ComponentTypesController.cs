@@ -16,7 +16,7 @@ namespace EmbeddedStockWebApp.Controllers
 
         public ComponentTypesController(ApplicationDbContext context)
         {
-            _context = context;    
+            _context = context;
         }
 
         // GET: ComponentTypes
@@ -45,8 +45,18 @@ namespace EmbeddedStockWebApp.Controllers
         // GET: ComponentTypes/Create
         public IActionResult Create()
         {
+            var categories = _context.Category.Select(c => new
+            {
+                CategoryID = c.CategoryId,
+                CategoryName = c.Name
+            }).ToList();
+
+            ViewBag.Categories = new MultiSelectList(categories, "CategoryID", "CategoryName");
+
             return View();
         }
+
+        //IEnumerable<string> selectedCategories
 
         // POST: ComponentTypes/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
@@ -57,6 +67,17 @@ namespace EmbeddedStockWebApp.Controllers
         {
             if (ModelState.IsValid)
             {
+                var temp = 
+
+                //foreach (var item in )
+                //{
+                //    componentType.Categories.Add(new OneToMany
+                //    {
+                //        ComponentTypeId = componentType.ComponentTypeId,
+                //        CategoryId = item                                            
+                //    });
+                //}
+
                 _context.Add(componentType);
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Index");

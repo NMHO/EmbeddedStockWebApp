@@ -47,18 +47,6 @@ namespace EmbeddedStockWebApp.Controllers
         // GET: Components/Create
         public IActionResult Create()
         {
-            var CT = _context.Category.ToList();
-
-            IEnumerable<SelectListItem> selectList =
-                from c in CT
-                select new SelectListItem
-                {
-                    Text = c.Name,
-                    Value = c.CategoryId.ToString(),
-                };
-
-            ViewData["Categories"] = selectList;
-
             return View();
         }
 

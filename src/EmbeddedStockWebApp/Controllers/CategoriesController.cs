@@ -45,17 +45,17 @@ namespace EmbeddedStockWebApp.Controllers
         // GET: Categories/Create
         public IActionResult Create()
         {
-            var CT = _context.ComponentType.ToList();
+            //var CT = _context.ComponentType.ToList();
 
-            IEnumerable<SelectListItem> selectList =
-                from c in CT
-                select new SelectListItem
-                {
-                    Text = c.ComponentName,                    
-                    Value = c.ComponentTypeId.ToString(),
-                };
+            //IEnumerable<SelectListItem> selectList =
+            //    from c in CT
+            //    select new SelectListItem
+            //    {
+            //        Text = c.ComponentName,                    
+            //        Value = c.ComponentTypeId.ToString(),
+            //    };
 
-            ViewData["ComponentTypes"] = selectList;
+            //ViewData["ComponentTypes"] = selectList;
 
             return View();
         }

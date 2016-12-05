@@ -10,7 +10,6 @@ namespace EmbeddedStockWebApp.Models
     {
         [Key]
         public long OneToManyId { get; set; }
-
         public long CategoryId { get; set; }
         public long ComponentTypeId { get; set; }        
     }
