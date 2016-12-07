@@ -1,4 +1,6 @@
 ﻿using System.Data.Entity;
+using System.Data.Entity.ModelConfiguration.Conventions;
+using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
@@ -35,5 +37,18 @@ namespace EmbeddedStockTest.Models
         public System.Data.Entity.DbSet<EmbeddedStockTest.Models.ComponentType> ComponentTypes { get; set; }
 
         public System.Data.Entity.DbSet<EmbeddedStockTest.Models.Component> Components { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+
+            modelBuilder.Entity<Category>()
+                .HasMany(c => c.ComponentTypes).WithMany(i => i.Categories)
+                .Map(t => t.MapLeftKey("ComponentTypeId")
+                    .MapRightKey("CategoryId")
+                    .ToTable("ComponentTypeCategories"));
+
+
+        }
     }
 }

@@ -18,10 +18,34 @@ namespace EmbeddedStockTest.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: ComponentTypes
-        public ActionResult Index()
+        public ActionResult Index(int? id)
         {
 
-            return View(db.ComponentTypes.ToList());
+            var viewModel = new ComponentTypeIndexData();
+
+
+            viewModel.ComponentTypes = db.ComponentTypes
+                .Include(i => i.ComponentName)
+                .Include(i => i.ComponentInfo)
+                .Include(i => i.Status)
+                .Include(i => i.Categories)
+                .OrderBy(i => i.ComponentName);
+
+
+            //viewModel.ComponentTypes = db.ComponentTypes;
+
+
+
+            if (id != null)
+            {
+                ViewBag.ComponenTypeId = id.Value;
+                viewModel.Categories = viewModel.ComponentTypes.Where(
+                    i => i.ComponentTypeId == id.Value).Single().Categories;
+            }
+
+
+
+            return View(viewModel);
         }
 
         // GET: ComponentTypes/Details/5
@@ -50,7 +74,7 @@ namespace EmbeddedStockTest.Controllers
         public void PopulateAssignedCategoryData(ComponentType componentType)
         {
             var allCategories = db.Categories;
-            var componentTypesCategories = new HashSet<int>(componentType.Categories.Select( c => c.CategoryId));
+            var componentTypesCategories = new HashSet<int>(componentType.Categories.Select(c => c.CategoryId));
             var viewModel = new List<CategoryViewModel>();
             foreach (var category in allCategories)
             {
@@ -63,7 +87,7 @@ namespace EmbeddedStockTest.Controllers
             }
             ViewBag.Categories = viewModel;
         }
-        
+
         // POST: ComponentTypes/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -158,3 +182,4 @@ namespace EmbeddedStockTest.Controllers
         }
     }
 }
+
