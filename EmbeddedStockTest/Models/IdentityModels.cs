@@ -40,15 +40,20 @@ namespace EmbeddedStockTest.Models
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
+
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+            modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
 
             modelBuilder.Entity<Category>()
-                .HasMany(c => c.ComponentTypes).WithMany(i => i.Categories)
-                .Map(t => t.MapLeftKey("ComponentTypeId")
-                    .MapRightKey("CategoryId")
-                    .ToTable("ComponentTypeCategories"));
-
-
+                        .HasMany<ComponentType>(s => s.ComponentTypes)
+                        .WithMany(c => c.Categories)
+                        .Map(cs =>
+                        {
+                            cs.MapLeftKey("CategoryRefId");
+                            cs.MapRightKey("ComponentTypeRefId");
+                            cs.ToTable("CategoryComponentType");
+                        });
         }
     }
 }

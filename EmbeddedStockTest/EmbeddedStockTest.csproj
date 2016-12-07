@@ -176,13 +176,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201612071131156_InitialCreate.cs" />
-    <Compile Include="Migrations\201612071131156_InitialCreate.Designer.cs">
-      <DependentUpon>201612071131156_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201612071616431_ComplexDataModel.cs" />
-    <Compile Include="Migrations\201612071616431_ComplexDataModel.Designer.cs">
-      <DependentUpon>201612071616431_ComplexDataModel.cs</DependentUpon>
+    <Compile Include="Migrations\201612072235104_ComplexDataModel.cs" />
+    <Compile Include="Migrations\201612072235104_ComplexDataModel.Designer.cs">
+      <DependentUpon>201612072235104_ComplexDataModel.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -280,11 +276,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201612071131156_InitialCreate.resx">
-      <DependentUpon>201612071131156_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201612071616431_ComplexDataModel.resx">
-      <DependentUpon>201612071616431_ComplexDataModel.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201612072235104_ComplexDataModel.resx">
+      <DependentUpon>201612072235104_ComplexDataModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

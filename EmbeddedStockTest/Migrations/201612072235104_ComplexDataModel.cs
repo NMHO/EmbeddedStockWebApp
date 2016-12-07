@@ -3,12 +3,12 @@ namespace EmbeddedStockTest.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitialCreate : DbMigration
+    public partial class ComplexDataModel : DbMigration
     {
         public override void Up()
         {
             CreateTable(
-                "dbo.Categories",
+                "dbo.Category",
                 c => new
                     {
                         CategoryId = c.Int(nullable: false, identity: true),
@@ -17,7 +17,7 @@ namespace EmbeddedStockTest.Migrations
                 .PrimaryKey(t => t.CategoryId);
             
             CreateTable(
-                "dbo.ComponentTypes",
+                "dbo.ComponentType",
                 c => new
                     {
                         ComponentTypeId = c.Long(nullable: false, identity: true),
@@ -33,11 +33,11 @@ namespace EmbeddedStockTest.Migrations
                         Image_ESImageId = c.Long(),
                     })
                 .PrimaryKey(t => t.ComponentTypeId)
-                .ForeignKey("dbo.ESImages", t => t.Image_ESImageId)
+                .ForeignKey("dbo.ESImage", t => t.Image_ESImageId)
                 .Index(t => t.Image_ESImageId);
             
             CreateTable(
-                "dbo.Components",
+                "dbo.Component",
                 c => new
                     {
                         ComponentId = c.Long(nullable: false, identity: true),
@@ -50,11 +50,11 @@ namespace EmbeddedStockTest.Migrations
                         CurrentLoanInformationId = c.Long(),
                     })
                 .PrimaryKey(t => t.ComponentId)
-                .ForeignKey("dbo.ComponentTypes", t => t.ComponentTypeId, cascadeDelete: true)
+                .ForeignKey("dbo.ComponentType", t => t.ComponentTypeId)
                 .Index(t => t.ComponentTypeId);
             
             CreateTable(
-                "dbo.ESImages",
+                "dbo.ESImage",
                 c => new
                     {
                         ESImageId = c.Long(nullable: false, identity: true),
@@ -82,8 +82,8 @@ namespace EmbeddedStockTest.Migrations
                         RoleId = c.String(nullable: false, maxLength: 128),
                     })
                 .PrimaryKey(t => new { t.UserId, t.RoleId })
-                .ForeignKey("dbo.AspNetRoles", t => t.RoleId, cascadeDelete: true)
-                .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: true)
+                .ForeignKey("dbo.AspNetRoles", t => t.RoleId)
+                .ForeignKey("dbo.AspNetUsers", t => t.UserId)
                 .Index(t => t.UserId)
                 .Index(t => t.RoleId);
             
@@ -117,7 +117,7 @@ namespace EmbeddedStockTest.Migrations
                         ClaimValue = c.String(),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: true)
+                .ForeignKey("dbo.AspNetUsers", t => t.UserId)
                 .Index(t => t.UserId);
             
             CreateTable(
@@ -129,21 +129,21 @@ namespace EmbeddedStockTest.Migrations
                         UserId = c.String(nullable: false, maxLength: 128),
                     })
                 .PrimaryKey(t => new { t.LoginProvider, t.ProviderKey, t.UserId })
-                .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: true)
+                .ForeignKey("dbo.AspNetUsers", t => t.UserId)
                 .Index(t => t.UserId);
             
             CreateTable(
-                "dbo.ComponentTypeCategories",
+                "dbo.CategoryComponentType",
                 c => new
                     {
-                        ComponentType_ComponentTypeId = c.Long(nullable: false),
-                        Category_CategoryId = c.Int(nullable: false),
+                        CategoryRefId = c.Int(nullable: false),
+                        ComponentTypeRefId = c.Long(nullable: false),
                     })
-                .PrimaryKey(t => new { t.ComponentType_ComponentTypeId, t.Category_CategoryId })
-                .ForeignKey("dbo.ComponentTypes", t => t.ComponentType_ComponentTypeId, cascadeDelete: true)
-                .ForeignKey("dbo.Categories", t => t.Category_CategoryId, cascadeDelete: true)
-                .Index(t => t.ComponentType_ComponentTypeId)
-                .Index(t => t.Category_CategoryId);
+                .PrimaryKey(t => new { t.CategoryRefId, t.ComponentTypeRefId })
+                .ForeignKey("dbo.Category", t => t.CategoryRefId, cascadeDelete: true)
+                .ForeignKey("dbo.ComponentType", t => t.ComponentTypeRefId, cascadeDelete: true)
+                .Index(t => t.CategoryRefId)
+                .Index(t => t.ComponentTypeRefId);
             
         }
         
@@ -153,30 +153,30 @@ namespace EmbeddedStockTest.Migrations
             DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
-            DropForeignKey("dbo.ComponentTypes", "Image_ESImageId", "dbo.ESImages");
-            DropForeignKey("dbo.Components", "ComponentTypeId", "dbo.ComponentTypes");
-            DropForeignKey("dbo.ComponentTypeCategories", "Category_CategoryId", "dbo.Categories");
-            DropForeignKey("dbo.ComponentTypeCategories", "ComponentType_ComponentTypeId", "dbo.ComponentTypes");
-            DropIndex("dbo.ComponentTypeCategories", new[] { "Category_CategoryId" });
-            DropIndex("dbo.ComponentTypeCategories", new[] { "ComponentType_ComponentTypeId" });
+            DropForeignKey("dbo.CategoryComponentType", "ComponentTypeRefId", "dbo.ComponentType");
+            DropForeignKey("dbo.CategoryComponentType", "CategoryRefId", "dbo.Category");
+            DropForeignKey("dbo.ComponentType", "Image_ESImageId", "dbo.ESImage");
+            DropForeignKey("dbo.Component", "ComponentTypeId", "dbo.ComponentType");
+            DropIndex("dbo.CategoryComponentType", new[] { "ComponentTypeRefId" });
+            DropIndex("dbo.CategoryComponentType", new[] { "CategoryRefId" });
             DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
             DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
             DropIndex("dbo.AspNetUsers", "UserNameIndex");
             DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
-            DropIndex("dbo.Components", new[] { "ComponentTypeId" });
-            DropIndex("dbo.ComponentTypes", new[] { "Image_ESImageId" });
-            DropTable("dbo.ComponentTypeCategories");
+            DropIndex("dbo.Component", new[] { "ComponentTypeId" });
+            DropIndex("dbo.ComponentType", new[] { "Image_ESImageId" });
+            DropTable("dbo.CategoryComponentType");
             DropTable("dbo.AspNetUserLogins");
             DropTable("dbo.AspNetUserClaims");
             DropTable("dbo.AspNetUsers");
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetRoles");
-            DropTable("dbo.ESImages");
-            DropTable("dbo.Components");
-            DropTable("dbo.ComponentTypes");
-            DropTable("dbo.Categories");
+            DropTable("dbo.ESImage");
+            DropTable("dbo.Component");
+            DropTable("dbo.ComponentType");
+            DropTable("dbo.Category");
         }
     }
 }

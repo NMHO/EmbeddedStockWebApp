@@ -25,25 +25,15 @@ namespace EmbeddedStockTest.Controllers
 
 
             viewModel.ComponentTypes = db.ComponentTypes
-                .Include(i => i.ComponentName)
-                .Include(i => i.ComponentInfo)
-                .Include(i => i.Status)
-                .Include(i => i.Categories)
-                .OrderBy(i => i.ComponentName);
+                .Include(i => i.Categories);
 
-
-            //viewModel.ComponentTypes = db.ComponentTypes;
-
-
-
+            
             if (id != null)
             {
                 ViewBag.ComponenTypeId = id.Value;
                 viewModel.Categories = viewModel.ComponentTypes.Where(
                     i => i.ComponentTypeId == id.Value).Single().Categories;
             }
-
-
 
             return View(viewModel);
         }

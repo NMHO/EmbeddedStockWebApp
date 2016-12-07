@@ -13,7 +13,7 @@ namespace EmbeddedStockTest.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201612071616431_ComplexDataModel"; }
+            get { return "201612072235104_ComplexDataModel"; }
         }
         
         string IMigrationMetadata.Source

@@ -10,7 +10,6 @@ namespace EmbeddedStockTest.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "EmbeddedStockTest.Models.ApplicationDbContext";
         }
 
         protected override void Seed(EmbeddedStockTest.Models.ApplicationDbContext context)
