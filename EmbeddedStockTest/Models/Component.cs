@@ -15,7 +15,8 @@ namespace EmbeddedStockTest.Models
             public string AdminComment { get; set; }
             public string UserComment { get; set; }
             public long? CurrentLoanInformationId { get; set; }
-        }
+        }
+
         public enum ComponentStatus
         {
             Available,

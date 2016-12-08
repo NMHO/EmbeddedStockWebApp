@@ -23,17 +23,9 @@ namespace EmbeddedStockTest.Controllers
 
             var viewModel = new ComponentTypeIndexData();
 
-
             viewModel.ComponentTypes = db.ComponentTypes
-                .Include(i => i.Categories);
-
-            
-            if (id != null)
-            {
-                ViewBag.ComponenTypeId = id.Value;
-                viewModel.Categories = viewModel.ComponentTypes.Where(
-                    i => i.ComponentTypeId == id.Value).Single().Categories;
-            }
+                .Include(i => i.Categories)
+                .Include(i => i.Components);          
 
             return View(viewModel);
         }
@@ -53,6 +45,7 @@ namespace EmbeddedStockTest.Controllers
             return View(componentType);
         }
 
+        [Authorize]
         // GET: ComponentTypes/Create
         public ActionResult Create()
         {
@@ -81,6 +74,7 @@ namespace EmbeddedStockTest.Controllers
         // POST: ComponentTypes/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "ComponentTypeId,ComponentName,ComponentInfo,Location,Status,Datasheet,ImageUrl,Manufacturer,WikiLink,AdminComment")] ComponentType componentType, string[] selectedCategories)
@@ -106,13 +100,20 @@ namespace EmbeddedStockTest.Controllers
         }
 
         // GET: ComponentTypes/Edit/5
+        [Authorize]
         public ActionResult Edit(long? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ComponentType componentType = db.ComponentTypes.Find(id);
+            ComponentType componentType = db.ComponentTypes
+                .Include(ct => ct.Categories)
+                .Where(ct => ct.ComponentTypeId == id)
+                .Single();
+
+            PopulateAssignedCategoryData(componentType);
+
             if (componentType == null)
             {
                 return HttpNotFound();
@@ -123,20 +124,77 @@ namespace EmbeddedStockTest.Controllers
         // POST: ComponentTypes/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ComponentTypeId,ComponentName,ComponentInfo,Location,Status,Datasheet,ImageUrl,Manufacturer,WikiLink,AdminComment")] ComponentType componentType)
+        public ActionResult Edit(int? id, string[] selectedCategories)
         {
-            if (ModelState.IsValid)
+
+            if (id == null)
             {
-                db.Entry(componentType).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            return View(componentType);
+            ComponentType componentTypeToUpdate = db.ComponentTypes
+                .Include(ct => ct.Categories)
+                .Where(ct => ct.ComponentTypeId == id)
+                .Single();
+
+            if (TryUpdateModel(componentTypeToUpdate, "",
+               new string[] { "ComponentTypeId","ComponentName","ComponentInfo","Location","Status","Datasheet","ImageUrl","Manufacturer","WikiLink","AdminComment" }))
+            {
+                try
+                {
+
+                    UpdateComponentTypesCategories(selectedCategories, componentTypeToUpdate);
+
+                    db.SaveChanges();
+
+                    return RedirectToAction("Index");
+                }
+                catch (RetryLimitExceededException /* dex */)
+                {
+                    //Log the error (uncomment dex variable name and add a line here to write a log.
+                    ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists, see your system administrator.");
+                }
+            }
+            PopulateAssignedCategoryData(componentTypeToUpdate);
+           
+        
+            return View(componentTypeToUpdate);  
         }
 
+        private void UpdateComponentTypesCategories(string[] selectedCategories, ComponentType componentTypeToUpdate)
+        {
+            if (selectedCategories == null)
+            {
+                componentTypeToUpdate.Categories.Clear();
+                return;
+            }
+
+            var selectedCategoriesHS = new HashSet<string>(selectedCategories);
+            var componentTypesCategories = new HashSet<int>(componentTypeToUpdate.Categories.Select(c => c.CategoryId));
+            foreach (var category in db.Categories)
+            {
+                if (selectedCategoriesHS.Contains(category.CategoryId.ToString()))
+                {
+                    if (!componentTypesCategories.Contains(category.CategoryId))
+                    {
+                        componentTypeToUpdate.Categories.Add(category);
+                    }
+                }
+                else
+                {
+                    if (componentTypesCategories.Contains(category.CategoryId))
+                    {
+                        componentTypeToUpdate.Categories.Remove(category);
+                    }
+                }
+            }
+        }
+
+
         // GET: ComponentTypes/Delete/5
+        [Authorize]
         public ActionResult Delete(long? id)
         {
             if (id == null)
@@ -152,6 +210,7 @@ namespace EmbeddedStockTest.Controllers
         }
 
         // POST: ComponentTypes/Delete/5
+        [Authorize]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(long id)

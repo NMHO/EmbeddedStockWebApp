@@ -90,6 +90,39 @@
         </div>
 
         <div class="form-group">
+            @Html.LabelFor(model => model.Categories, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+
+                <table>
+                    <tr>
+                        @{
+                            int cnt = 0;
+                            List<EmbeddedStockTest.ViewModels.CategoryViewModel> cateogries = ViewBag.Categories;
+
+                            foreach (var category in cateogries)
+                            {
+                                if (cnt++ % 3 == 0)
+                                {
+                                    @:</tr><tr>
+                                }
+
+                                @:<td>
+                                    <input type="checkbox"
+                                           name="selectedCategories" ,
+                                           value="@category.CategoryId" ,
+                                           @(Html.Raw(category.Assigned ? "checked=\"checked\"" : "")) />
+                                    @category.CategoryId @: @category.Name
+                                    @:</td>
+                            }
+                            @:</tr>
+                        }
+                    </table>
+
+                </div>
+        </div>
+            
+
+        <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Save" class="btn btn-default" />
             </div>

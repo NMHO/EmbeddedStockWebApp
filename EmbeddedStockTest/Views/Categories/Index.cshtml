@@ -1,10 +1,11 @@
-﻿@model IEnumerable<EmbeddedStockTest.Models.Category>
+﻿@*@model IEnumerable<EmbeddedStockTest.Models.Category>*@
+@model EmbeddedStockTest.ViewModels.ComponentTypeIndexData
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Categories";
 }
 
-<h2>Index</h2>
+<h2>Categories</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -12,15 +13,24 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Name)
+            Category Name
         </th>
+        <th>
+            Component Types
+        </th>            
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
+@foreach (var item in Model.Categories) {
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @foreach (var componentType in item.ComponentTypes)
+            {
+                <text><b>ID: </b></text>@componentType.ComponentTypeId @: <text><b>Name: </b></text>@componentType.ComponentName <br />
+                }
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.CategoryId }) |

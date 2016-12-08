@@ -27,7 +27,8 @@ namespace EmbeddedStockTest.Models
         public string AdminComment { get; set; }
         public virtual ESImage Image { get; set; }
         public ICollection<Component> Components { get; protected set; }
-        public ICollection<Category> Categories { get; protected set; }
+        public ICollection<Category> Categories { get; protected set; }
+
     }
 
     public enum ComponentTypeStatus

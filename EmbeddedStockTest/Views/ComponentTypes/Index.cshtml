@@ -5,7 +5,7 @@
     ViewBag.Title = "Component Types";
 }
 
-<h2>Index</h2>
+<h2>Component Types</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -23,6 +23,9 @@
         </th>
         <th>
             Categories
+        </th>
+        <th>
+            Components
         </th>
         <th></th>
     </tr>
@@ -42,7 +45,13 @@
             <td>
                 @foreach (var category in item.Categories)
                 {
-                    @category.CategoryId @: @category.Name <br/>
+                    <text><b>ID: </b></text>@category.CategoryId @: <text><b>Name: </b></text>@category.Name <br />
+                }                
+            </td>
+            <td>
+                @foreach (var component in item.Components)
+                {
+                    <text><b>ID: </b></text>@component.ComponentId @: <text><b>Serial No.: </b></text>@component.SerialNo <br />
                 }
             </td>
             <td>

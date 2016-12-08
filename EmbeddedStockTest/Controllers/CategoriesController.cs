@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using EmbeddedStockTest.Models;
+using EmbeddedStockTest.ViewModels;
 
 namespace EmbeddedStockTest.Controllers
 {
@@ -17,7 +18,12 @@ namespace EmbeddedStockTest.Controllers
         // GET: Categories
         public ActionResult Index()
         {
-            return View(db.Categories.ToList());
+            var viewModel = new ComponentTypeIndexData();
+
+            viewModel.Categories = db.Categories
+                .Include(i => i.ComponentTypes);
+
+            return View(viewModel);
         }
 
         // GET: Categories/Details/5
@@ -36,6 +42,7 @@ namespace EmbeddedStockTest.Controllers
         }
 
         // GET: Categories/Create
+        [Authorize]
         public ActionResult Create()
         {
             return View();
@@ -44,6 +51,7 @@ namespace EmbeddedStockTest.Controllers
         // POST: Categories/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "CategoryId,Name")] Category category)
@@ -59,6 +67,7 @@ namespace EmbeddedStockTest.Controllers
         }
 
         // GET: Categories/Edit/5
+        [Authorize]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -76,6 +85,7 @@ namespace EmbeddedStockTest.Controllers
         // POST: Categories/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "CategoryId,Name")] Category category)
@@ -90,6 +100,7 @@ namespace EmbeddedStockTest.Controllers
         }
 
         // GET: Categories/Delete/5
+        [Authorize]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -105,6 +116,7 @@ namespace EmbeddedStockTest.Controllers
         }
 
         // POST: Categories/Delete/5
+        [Authorize]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

@@ -1,13 +1,19 @@
 ﻿@model IEnumerable<EmbeddedStockTest.Models.Component>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Components";
 }
 
-<h2>Index</h2>
+<h2>Components</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
+
+    @using (Html.BeginForm())
+    {
+        <p>Component Number: @Html.TextBox("SearchString")
+        <input type="submit" value="Find" /></p>
+    }
 </p>
 <table class="table">
     <tr>
