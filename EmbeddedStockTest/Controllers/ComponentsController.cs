@@ -24,7 +24,7 @@ namespace EmbeddedStockTest.Controllers
 
             if (!string.IsNullOrEmpty(searchString))
             {
-                var temp = components.Where(s => s.ComponentNumber.ToString().Equals(searchString));
+                var temp = components.Where(s => s.ComponentNumber.ToString().Equals(searchString)).AsNoTracking();
 
                 if (temp != null)
                 {
