@@ -210,3 +210,23 @@ C:\Users\Victor\Dropbox\IHA\6. Semester\ITWEB\Project\Azure\EmbeddedStockWebApp\
 C:\Users\Victor\Dropbox\IHA\6. Semester\ITWEB\Project\Azure\EmbeddedStockWebApp\EmbeddedStockTest\obj\Debug\EmbeddedStockTest.Migrations.ComplexDataModel.resources
 C:\Users\Nicklas-MacBook\Documents\Visual Studio 2015\Projects\ITTWEB\EmbeddedStockWebApp\EmbeddedStockTest\obj\Debug\EmbeddedStockTest.Migrations.ComplexDataModel.resources
 C:\Users\Nicklas-MacBook\Documents\Visual Studio 2015\Projects\ITTWEB\EmbeddedStockWebApp\EmbeddedStockTest\obj\Debug\EmbeddedStockTest.csproj.GenerateResource.Cache
+C:\Users\Nicklas-MacBook\Documents\Visual Studio 2015\Projects\ITTWEB\EmbeddedStockWebApp\EmbeddedStockTest\bin\roslyn\csc.exe.config
+C:\Users\Nicklas-MacBook\Documents\Visual Studio 2015\Projects\ITTWEB\EmbeddedStockWebApp\EmbeddedStockTest\bin\roslyn\csc.rsp
+C:\Users\Nicklas-MacBook\Documents\Visual Studio 2015\Projects\ITTWEB\EmbeddedStockWebApp\EmbeddedStockTest\bin\roslyn\csi.exe
+C:\Users\Nicklas-MacBook\Documents\Visual Studio 2015\Projects\ITTWEB\EmbeddedStockWebApp\EmbeddedStockTest\bin\roslyn\csi.rsp
+C:\Users\Nicklas-MacBook\Documents\Visual Studio 2015\Projects\ITTWEB\EmbeddedStockWebApp\EmbeddedStockTest\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\Nicklas-MacBook\Documents\Visual Studio 2015\Projects\ITTWEB\EmbeddedStockWebApp\EmbeddedStockTest\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\Nicklas-MacBook\Documents\Visual Studio 2015\Projects\ITTWEB\EmbeddedStockWebApp\EmbeddedStockTest\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\Nicklas-MacBook\Documents\Visual Studio 2015\Projects\ITTWEB\EmbeddedStockWebApp\EmbeddedStockTest\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\Nicklas-MacBook\Documents\Visual Studio 2015\Projects\ITTWEB\EmbeddedStockWebApp\EmbeddedStockTest\bin\roslyn\System.AppContext.dll
+C:\Users\Nicklas-MacBook\Documents\Visual Studio 2015\Projects\ITTWEB\EmbeddedStockWebApp\EmbeddedStockTest\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\Nicklas-MacBook\Documents\Visual Studio 2015\Projects\ITTWEB\EmbeddedStockWebApp\EmbeddedStockTest\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\Nicklas-MacBook\Documents\Visual Studio 2015\Projects\ITTWEB\EmbeddedStockWebApp\EmbeddedStockTest\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\Nicklas-MacBook\Documents\Visual Studio 2015\Projects\ITTWEB\EmbeddedStockWebApp\EmbeddedStockTest\bin\roslyn\vbc.exe.config
+C:\Users\Nicklas-MacBook\Documents\Visual Studio 2015\Projects\ITTWEB\EmbeddedStockWebApp\EmbeddedStockTest\bin\roslyn\vbc.rsp
+C:\Users\Nicklas-MacBook\Documents\Visual Studio 2015\Projects\ITTWEB\EmbeddedStockWebApp\EmbeddedStockTest\bin\System.Net.Http.Formatting.dll
+C:\Users\Nicklas-MacBook\Documents\Visual Studio 2015\Projects\ITTWEB\EmbeddedStockWebApp\EmbeddedStockTest\bin\System.Web.Http.dll
+C:\Users\Nicklas-MacBook\Documents\Visual Studio 2015\Projects\ITTWEB\EmbeddedStockWebApp\EmbeddedStockTest\bin\System.Web.Http.WebHost.dll
+C:\Users\Nicklas-MacBook\Documents\Visual Studio 2015\Projects\ITTWEB\EmbeddedStockWebApp\EmbeddedStockTest\bin\System.Net.Http.Formatting.xml
+C:\Users\Nicklas-MacBook\Documents\Visual Studio 2015\Projects\ITTWEB\EmbeddedStockWebApp\EmbeddedStockTest\bin\System.Web.Http.xml
+C:\Users\Nicklas-MacBook\Documents\Visual Studio 2015\Projects\ITTWEB\EmbeddedStockWebApp\EmbeddedStockTest\bin\System.Web.Http.WebHost.xml

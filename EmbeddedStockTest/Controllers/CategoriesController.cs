@@ -20,8 +20,7 @@ namespace EmbeddedStockTest.Controllers
         {
             var viewModel = new ComponentTypeIndexData();
 
-            viewModel.Categories = db.Categories
-                .Include(i => i.ComponentTypes);
+            viewModel.Categories = db.Categories.Include(i => i.ComponentTypes);
 
             return View(viewModel);
         }
